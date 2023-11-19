@@ -12,18 +12,18 @@ namespace ShapeCalc
         static void Main(string[] args)
         {
             /* FORMULAES:         
-            *              AREA       || PERIMETER   ||
-            *2D sgapes                ||             ||
-            *Square = (a^2)           || (4*a)       ||
-            *Rectangle = (l*b)        || (l+w)2      ||
-            *circle = (pi*r^2)        || (2*pi*r)    ||
-            **Triangle = 1/2(b*h)     || (a+b+c)     ||
-            *Semi-circle = (pi*r^2)/2 || (pi*r)      ||
+            *              AREA       || PERIMETER  || Volume      ||
+            *2D shapes                ||            ||-------------||
+            *Square = (a^2)           || (4*a)      ||             ||
+            *Rectangle = (l*b)        || (l+b)2     ||             ||
+            *circle = (pi*r^2)        || (2*pi*r)   ||             ||
+            *Triangle = 1/2(b*h)     || (a+b+c)    ||             ||
+            *Semi-circle = (pi*r^2)/2 || (pi*r)     ||             ||
             *
-            *3D shapes:               ||             || VOLUME 
-            *Cube = (6*a^2)           || (12*a)      || (a^3)
-            *Sphere = (4*pi*r^2)      || (2*pi*r)    || 4/3(pi*r^3)
-            *Cuboid = 2(lb+bh+lh)     || 4(l+b+h)    || (l*b*h)           
+            *3D shapes:               ||------------||             ||
+            *Cube = (6*a^2)           ||            || (a^3)       ||
+            *Sphere = (4*pi*r^2)      ||            || 4/3(pi*r^3) ||
+            *Cuboid = 2(lb+bh+lh)     ||            || (l*b*h)     ||      
             */
 
             int menuSelect;
@@ -53,6 +53,7 @@ namespace ShapeCalc
                 return;
             }
 
+            // Area
             while (menuSelect == 1)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -67,6 +68,7 @@ namespace ShapeCalc
                     goto Outer;
                 }
 
+                // 2D shapes
                 while (dimensionSelect == 1)
                 {                      
                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -78,7 +80,7 @@ namespace ShapeCalc
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     areaSelect = int.Parse(Console.ReadLine());
                     Console.ResetColor();
-
+                    
                     if (areaSelect == 1)
                     {
                         float squareSide;
@@ -91,7 +93,7 @@ namespace ShapeCalc
                         squareSide = float.Parse(Console.ReadLine());
                         Console.ResetColor();
 
-                        sol = squareSide * squareSide;
+                        sol = Math.Pow(squareSide, 2f);
 
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.Write("\nArea of the square is: ");
@@ -114,7 +116,7 @@ namespace ShapeCalc
                         radius = float.Parse(Console.ReadLine());
                         Console.ResetColor();
 
-                        sol = ((float)Math.PI * radius * radius);
+                        sol = ((float)Math.PI * Math.Pow(radius, 2f));
 
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.Write("\nThe area of the circle is: ");
@@ -128,7 +130,7 @@ namespace ShapeCalc
                     else if (areaSelect == 3)
                     {
                         float rectangleLength;
-                        float rectangleBreath;
+                        float rectangleBreadth;
 
                         Console.ForegroundColor = ConsoleColor.Blue;
                         Console.Write("Enter the length of rectangle: ");
@@ -139,14 +141,14 @@ namespace ShapeCalc
                         Console.ResetColor();
 
                         Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.WriteLine("Enter the breath of rectangle: ");
+                        Console.Write("Enter the breadth of rectangle: ");
                         Console.ResetColor();
 
                         Console.ForegroundColor = ConsoleColor.Gray;
-                        rectangleBreath = float.Parse(Console.ReadLine());
+                        rectangleBreadth = float.Parse(Console.ReadLine());
                         Console.ResetColor();
 
-                        sol = rectangleLength * rectangleBreath;
+                        sol = rectangleLength * rectangleBreadth;
 
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.Write("\nArea of the rectangle is: ");
@@ -178,7 +180,7 @@ namespace ShapeCalc
                         triangleHeight = float.Parse(Console.ReadLine());
                         Console.ResetColor();
 
-                        sol = 0.5 * (triangleBreadth * triangleHeight);
+                        sol = 0.5f * (triangleBreadth * triangleHeight);
 
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.Write("\nArea of the triangle is: ");
@@ -201,7 +203,7 @@ namespace ShapeCalc
                         circleRadius = float.Parse(Console.ReadLine());
                         Console.ResetColor();
 
-                        sol = ((float)Math.PI * circleRadius * circleRadius) * 0.5;
+                        sol = ((float)Math.PI * Math.Pow(circleRadius, 2f)) * 0.5f;
 
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.Write("\nArea of the semi-circle is: ");
@@ -214,11 +216,13 @@ namespace ShapeCalc
 
                     else
                     {
+                        Console.Clear();
                         break;
                     }
 
                 }
 
+                // 3D shapes
                 while (dimensionSelect == 2)
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -229,7 +233,7 @@ namespace ShapeCalc
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     areaSelect = int.Parse(Console.ReadLine());
                     Console.ResetColor();
-
+                    
                     if (areaSelect == 1)
                     {
                         float cubeSide;
@@ -242,7 +246,7 @@ namespace ShapeCalc
                         cubeSide = float.Parse(Console.ReadLine());
                         Console.ResetColor();
 
-                        sol = 6 * (cubeSide * cubeSide);
+                        sol = 6f * (Math.Pow(cubeSide, 2f));
 
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.Write("\nArea of the cube is: ");
@@ -265,7 +269,7 @@ namespace ShapeCalc
                         sphereRadius = float.Parse(Console.ReadLine());
                         Console.ResetColor();
 
-                        sol = (4 * (float)Math.PI * sphereRadius * sphereRadius);
+                        sol = (4f * (float)Math.PI * Math.Pow(sphereRadius, 2f));
 
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.Write("\nArea of the sphere is: ");
@@ -306,7 +310,7 @@ namespace ShapeCalc
                         cuboidHeight = float.Parse(Console.ReadLine());
                         Console.ResetColor();
 
-                        sol = 2 * (cuboidLength + cuboidBreadth + cuboidHeight);
+                        sol = 2f * (cuboidLength + cuboidBreadth + cuboidHeight);
 
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.Write("\nArea of the cuboid is: ");
@@ -319,48 +323,287 @@ namespace ShapeCalc
                                         
                     else
                     {
+                        Console.Clear();
                         break;
                     }
 
                 }                          
                
             }
-
-            // Fuck!
-
+                        
+            // Perimeter
             while (menuSelect == 2)
             {
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("Press 0 to go back \nPlease select the dimension of the shape: \n| 1- 2D | | 2 - 3D |");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Press any number to go back \nSelect the shape to continue: ");
+                Console.WriteLine("| 1- perimeter of square | | 2- perimeter of circle | | 3- perimeter of rectangle |");
+                Console.WriteLine("| 4- perimeter of triangle | | 5- perimeter of semi-circle |");
                 Console.ResetColor();
 
-                dimensionSelect = int.Parse(Console.ReadLine());
-                Console.Clear();
-
-                if (dimensionSelect == 0)
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                perimeterSelect = int.Parse(Console.ReadLine());
+                Console.ResetColor();
+                
+                if (perimeterSelect == 1) 
                 {
+                    float squareSide;
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("Enter the sides of the square: ");
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    squareSide = float.Parse(Console.ReadLine());
+                    Console.ResetColor();
+
+                    sol = squareSide * 4f;
+
+                    Console.ForegroundColor= ConsoleColor.Cyan;
+                    Console.Write("\nPerimeter of the square is: ");
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(sol + "\n");
+                    Console.ResetColor();
+                    // Squire perimeter
+                }
+
+                else if (perimeterSelect == 2)
+                {
+                    float circleRadius;
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("Enter the radius of the circle: ");
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    circleRadius = float.Parse(Console.ReadLine());
+                    Console.ResetColor();
+
+                    sol = 2f * (float)Math.PI * circleRadius;
+
+                    Console.ForegroundColor= ConsoleColor.Cyan;
+                    Console.Write("\nPerimeter of the circle is: ");
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(sol + "\n");
+                    Console.ResetColor();
+                    // Circle perimeter
+                }
+
+                else if (perimeterSelect == 3)
+                {
+                    float rectangleLength;
+                    float rectangleBreadth;
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("Enter the length of the rectangle: ");
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    rectangleLength = float.Parse(Console.ReadLine());
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("Enter the breadth of the rectangle: ");
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    rectangleBreadth = float.Parse(Console.ReadLine());
+                    Console.ResetColor();
+
+                    sol = (rectangleLength + rectangleBreadth) * 2f;
+
+                    Console.ForegroundColor= ConsoleColor.Cyan;
+                    Console.Write("\nPerimeter of the rectangle is:  ");
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(sol + "\n");
+                    Console.ResetColor();
+                    // Rectangle perimeter
+                }
+
+                else if (perimeterSelect == 4)
+                {
+                    float triangleLength;
+                    float triangleBreadth;
+                    float triangleHeight;
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("Enter the first side of the triangle: ");
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    triangleLength = float.Parse(Console.ReadLine());
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("Enter the second side of the triangle: ");
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    triangleBreadth = float.Parse(Console.ReadLine());
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("Enter the third and final side of the triangle: ");
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    triangleHeight = float.Parse(Console.ReadLine());
+                    Console.ResetColor();
+
+                    sol = triangleLength + triangleBreadth + triangleHeight;
+
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("\nPerimeter of the triangle is: ");
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(sol + "\n");
+                    Console.ResetColor();
+                    // Triangle perimeter
+                }
+
+                else if (perimeterSelect == 5)
+                {
+                    float circleRadius;
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("Enter the radius of the semi-circle: ");
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    circleRadius = float.Parse(Console.ReadLine());
+                    Console.ResetColor();
+
+                    sol = (float)Math.PI * circleRadius;
+
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("\nPerimeter of the semi-circle is: ");
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(sol + "\n");
+                    Console.ResetColor();
+                    // Semi-circle perimeter
+                }
+
+                else
+                {
+                    Console.Clear();
                     goto Outer;
                 }
+               
             }
 
+            // Volume
             while (menuSelect == 3)
             {
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("Press 0 to go back \nPlease select the dimension of the shape:          !!PERIMETER == CIRCUMFERENCE!! \n| 1- 2D | | 2 - 3D |");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Press any number to go back \nSelect the shape to continue: ");
+                Console.WriteLine("| 1- volume of cube | | 2- volume of sphere | | 3- volume of cuboid |");              
                 Console.ResetColor();
 
-                dimensionSelect = int.Parse(Console.ReadLine());
-                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                volumeSelect = int.Parse(Console.ReadLine());
+                Console.ResetColor();
+                
+                if (volumeSelect == 1)
+                {
+                    float cubeside;
 
-                if (dimensionSelect == 0)
-                { 
-                    // 2D shapes dosent have volume!!!
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("Enter the sides of the cube: ");
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    cubeside = float.Parse(Console.ReadLine());
+                    Console.ResetColor();
+
+                    sol = Math.Pow(cubeside, 3f);
+
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("\nVolume of the cube is: ");
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(sol + "\n");
+                    Console.ResetColor();
+                    // Cube volume
+                }
+
+                else if (volumeSelect == 2)
+                {
+                    float sphereRadius;
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("Enter the radius of the sphere: ");
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    sphereRadius = float.Parse(Console.ReadLine());
+                    Console.ResetColor();
+
+                    sol = ((float)Math.PI * Math.Pow(sphereRadius, 3f)) * (4f / 3f);
+
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("\nVolume of the sphere is: ");
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(sol + "\n");
+                    Console.ResetColor();
+                    // Sphere volume
+                }
+
+                else if (volumeSelect == 3)
+                {
+                    float cuboidLength;
+                    float cuboidBreadth;
+                    float cuboidHeight;
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("Enter the length of the cuboid: ");
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    cuboidLength = float.Parse(Console.ReadLine());
+                    Console.ResetColor();
+
+                    Console.ForegroundColor= ConsoleColor.Blue;
+                    Console.Write("Enter the breadth of the cuboid: ");
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    cuboidBreadth = float.Parse(Console.ReadLine());    
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.Write("Enter the height of the rectangle: ");
+                    Console.ResetColor();
+
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    cuboidHeight = float.Parse(Console.ReadLine());
+                    Console.ResetColor();
+
+                    sol = (cuboidLength * cuboidBreadth * cuboidHeight);
+
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write("\nVolume of the cuboid is: ");
+                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(sol + "\n");
+                    Console.ResetColor();
+                    // Cuboid volume
+                }
+
+               else
+                {
+                    Console.Clear();
                     goto Outer;
                 }
+
             }
                        
             Console.ReadKey();
             // Get input from user then close
+
         }
     }
 }
