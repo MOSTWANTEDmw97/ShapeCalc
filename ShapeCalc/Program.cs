@@ -17,7 +17,7 @@ namespace ShapeCalc
             *Square = (a^2)           || (4*a)      ||             ||
             *Rectangle = (l*b)        || (l+b)2     ||             ||
             *circle = (pi*r^2)        || (2*pi*r)   ||             ||
-            *Triangle = 1/2(b*h)     || (a+b+c)    ||             ||
+            *Triangle = 1/2(b*h)      || (a+b+c)    ||             ||
             *Semi-circle = (pi*r^2)/2 || (pi*r)     ||             ||
             *
             *3D shapes:               ||------------||             ||
