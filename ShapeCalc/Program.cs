@@ -52,7 +52,7 @@ namespace ShapeCalc
             {
                 return;
             }
-
+           
             // Area
             while (menuSelect == 1)
             {
@@ -600,7 +600,15 @@ namespace ShapeCalc
                 }
 
             }
-                       
+
+            if (menuSelect != 0 || menuSelect != 1 || menuSelect != 2 || menuSelect != 3)
+            {
+                Console.WriteLine("Well...Nope JUST NOOO! \nPress any key to go back...                And dont mess up the commands ever again");
+                Console.ReadKey();
+                Console.Clear();
+                goto Outer;
+            }
+
             Console.ReadKey();
             // Get input from user then close
 
