@@ -26,18 +26,19 @@ namespace ShapeCalc
             *Cuboid = 2(lb+bh+lh)     ||            || (l*b*h)     ||      
             */
 
-            int menuSelect;
-            int dimensionSelect;
-            int areaSelect;
-            int perimeterSelect;
-            int volumeSelect;
+            string menuSelect;
+            string dimensionSelect;
+            string areaSelect;
+            string perimeterSelect;
+            string volumeSelect;
 
             double sol;
 
-            Outer:;
+            Outer:                  // Label to jump back from the code (used to go back to to menuSelect/ mainmenu)
 
             Console.Title = "ShapeCalc";
 
+            //Main menu...
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Press 0 to exit!\n__________________________________________________________________");
             Console.ResetColor();
@@ -45,31 +46,26 @@ namespace ShapeCalc
             Console.WriteLine("Please select the type of calculation: \n| 1- area | | 2- perimeter | | 3- volume |");
             Console.ResetColor();
                        
-            menuSelect = int.Parse(Console.ReadLine());
+            menuSelect = (Console.ReadLine());
             Console.Clear();
-
-            if (menuSelect == 0)
-            {
-                return;
-            }
-           
+                                  
             // Area
-            while (menuSelect == 1)
+            while (menuSelect == "1")
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("Press 0 to go back \nPlease select the dimension of the shape: \n| 1- 2D | | 2 - 3D |"); 
                 Console.ResetColor();
 
-                dimensionSelect = int.Parse(Console.ReadLine());
+                dimensionSelect = (Console.ReadLine());
                 Console.Clear();
 
-                if (dimensionSelect == 0) 
+                if (dimensionSelect == "0") 
                 { 
                     goto Outer;
                 }
 
                 // 2D shapes
-                while (dimensionSelect == 1)
+                while (dimensionSelect == "1")
                 {                      
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("Press any number to go back \nSelect the 2D shape to continue: ");
@@ -78,10 +74,10 @@ namespace ShapeCalc
                     Console.ResetColor();
                    
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    areaSelect = int.Parse(Console.ReadLine());
+                    areaSelect = (Console.ReadLine());
                     Console.ResetColor();
                     
-                    if (areaSelect == 1)
+                    if (areaSelect == "1")
                     {
                         float squareSide;
 
@@ -104,7 +100,7 @@ namespace ShapeCalc
                         // square area
                     }
 
-                    else if (areaSelect == 2)
+                    else if (areaSelect == "2")
                     {
                         float radius;
 
@@ -127,7 +123,7 @@ namespace ShapeCalc
                         // Circle area
                     }
 
-                    else if (areaSelect == 3)
+                    else if (areaSelect == "3")
                     {
                         float rectangleLength;
                         float rectangleBreadth;
@@ -159,7 +155,7 @@ namespace ShapeCalc
                         // rectangle area
                     }
 
-                    else if (areaSelect == 4)
+                    else if (areaSelect == "4")
                     {
                         float triangleBreadth;
                         float triangleHeight;
@@ -191,7 +187,7 @@ namespace ShapeCalc
                         // Common triangle area
                     }
 
-                    else if (areaSelect == 5)
+                    else if (areaSelect == "5")
                     {
                         float circleRadius;
 
@@ -223,7 +219,7 @@ namespace ShapeCalc
                 }
 
                 // 3D shapes
-                while (dimensionSelect == 2)
+                while (dimensionSelect == "2")
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("Press any number to go back \nSelect the 3D shape to continue: ");
@@ -231,10 +227,10 @@ namespace ShapeCalc
                     Console.ResetColor();
 
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    areaSelect = int.Parse(Console.ReadLine());
+                    areaSelect = (Console.ReadLine());
                     Console.ResetColor();
                     
-                    if (areaSelect == 1)
+                    if (areaSelect == "1")
                     {
                         float cubeSide;
 
@@ -257,7 +253,7 @@ namespace ShapeCalc
                         // cube area
                     }
 
-                    else if (areaSelect == 2)
+                    else if (areaSelect == "2")
                     {
                         float sphereRadius;
 
@@ -280,7 +276,7 @@ namespace ShapeCalc
                         // Sphere area
                     }
 
-                    else if (areaSelect == 3)
+                    else if (areaSelect == "3")
                     {
                         float cuboidLength;
                         float cuboidBreadth;
@@ -332,7 +328,7 @@ namespace ShapeCalc
             }
                         
             // Perimeter
-            while (menuSelect == 2)
+            while (menuSelect == "2")
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Press any number to go back \nSelect the shape to continue: ");
@@ -341,10 +337,10 @@ namespace ShapeCalc
                 Console.ResetColor();
 
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                perimeterSelect = int.Parse(Console.ReadLine());
+                perimeterSelect = (Console.ReadLine());
                 Console.ResetColor();
                 
-                if (perimeterSelect == 1) 
+                if (perimeterSelect == "1") 
                 {
                     float squareSide;
 
@@ -367,7 +363,7 @@ namespace ShapeCalc
                     // Squire perimeter
                 }
 
-                else if (perimeterSelect == 2)
+                else if (perimeterSelect == "2")
                 {
                     float circleRadius;
 
@@ -390,7 +386,7 @@ namespace ShapeCalc
                     // Circle perimeter
                 }
 
-                else if (perimeterSelect == 3)
+                else if (perimeterSelect == "3")
                 {
                     float rectangleLength;
                     float rectangleBreadth;
@@ -422,7 +418,7 @@ namespace ShapeCalc
                     // Rectangle perimeter
                 }
 
-                else if (perimeterSelect == 4)
+                else if (perimeterSelect == "4")
                 {
                     float triangleLength;
                     float triangleBreadth;
@@ -463,7 +459,7 @@ namespace ShapeCalc
                     // Triangle perimeter
                 }
 
-                else if (perimeterSelect == 5)
+                else if (perimeterSelect == "5")
                 {
                     float circleRadius;
 
@@ -495,7 +491,7 @@ namespace ShapeCalc
             }
 
             // Volume
-            while (menuSelect == 3)
+            while (menuSelect == "3")
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Press any number to go back \nSelect the shape to continue: ");
@@ -503,10 +499,10 @@ namespace ShapeCalc
                 Console.ResetColor();
 
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                volumeSelect = int.Parse(Console.ReadLine());
+                volumeSelect = (Console.ReadLine());
                 Console.ResetColor();
                 
-                if (volumeSelect == 1)
+                if (volumeSelect == "1")
                 {
                     float cubeside;
 
@@ -529,7 +525,7 @@ namespace ShapeCalc
                     // Cube volume
                 }
 
-                else if (volumeSelect == 2)
+                else if (volumeSelect == "2")
                 {
                     float sphereRadius;
 
@@ -552,7 +548,7 @@ namespace ShapeCalc
                     // Sphere volume
                 }
 
-                else if (volumeSelect == 3)
+                else if (volumeSelect == "3")
                 {
                     float cuboidLength;
                     float cuboidBreadth;
@@ -601,12 +597,19 @@ namespace ShapeCalc
 
             }
 
-            if (menuSelect != 0 || menuSelect != 1 || menuSelect != 2 || menuSelect != 3)
+            if (menuSelect == "0")
             {
-                Console.WriteLine("Well...Nope JUST NOOO! \nPress any key to go back...                And dont mess up the commands ever again");
+                return;
+                // Close the program 
+            }
+
+            if (menuSelect != "0" || menuSelect != "1" || menuSelect != "2" || menuSelect != "3")
+            {
+                Console.WriteLine("Well...Nope JUST NOOO! \nPress any key to go back...                                And dont mess up the commands ever again");
                 Console.ReadKey();
                 Console.Clear();
                 goto Outer;
+                // Invalid input message
             }
 
             Console.ReadKey();
