@@ -40,12 +40,23 @@ namespace ShapeCalc
 
             //Main menu...
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Press 0 to exit!\n__________________________________________________________________");
+            Console.WriteLine("Press 0 to exit!\n____________________________________________________________________________________________________________________");
             Console.ResetColor();
-            Console.ForegroundColor= ConsoleColor.DarkYellow;
-            Console.WriteLine("Please select the type of calculation: \n| 1- area | | 2- perimeter | | 3- volume |");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Please select the type of calculation:\n\n");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("....|| 1      Area ||\n");            
+            Console.WriteLine("....|| 2      Perimeter ||\n");                         
+            Console.WriteLine("....|| 3      Volume ||\n");
             Console.ResetColor();
-                       
+
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("____________________________________________________________________________________________________________________\n");
+            Console.ResetColor();
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("Input:   ");
+            Console.ResetColor();
             menuSelect = (Console.ReadLine());
             Console.Clear();
                                   
@@ -53,7 +64,7 @@ namespace ShapeCalc
             while (menuSelect == "1")
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("Press 0 to go back \nPlease select the dimension of the shape: \n| 1- 2D | | 2 - 3D |"); 
+                Console.WriteLine("Press 0 to go back\n \nPlease select the dimension of the shape: \n| 1- 2D |\n \n| 2- 3D |\n"); 
                 Console.ResetColor();
 
                 dimensionSelect = (Console.ReadLine());
@@ -68,7 +79,7 @@ namespace ShapeCalc
                 while (dimensionSelect == "1")
                 {                      
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("Press any number to go back \nSelect the 2D shape to continue: ");
+                    Console.WriteLine("Press any number to go back\n \nSelect the 2D shape to continue: \n");
                     Console.WriteLine("| 1- area of square | | 2- area of circle | | 3- area of rectangle|");
                     Console.WriteLine("| 4- area of triangle | |5- area of semi-circle |");
                     Console.ResetColor();
@@ -222,7 +233,7 @@ namespace ShapeCalc
                 while (dimensionSelect == "2")
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("Press any number to go back \nSelect the 3D shape to continue: ");
+                    Console.WriteLine("Press any number to go back\n \nSelect the 3D shape to continue: \n");
                     Console.WriteLine("| 1- area of cube | | 2- area of sphere | | 3- area of cuboid |");
                     Console.ResetColor();
 
@@ -331,7 +342,7 @@ namespace ShapeCalc
             while (menuSelect == "2")
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Press any number to go back \nSelect the shape to continue: ");
+                Console.WriteLine("Press any number to go back\n \nSelect the shape to continue: \n");
                 Console.WriteLine("| 1- perimeter of square | | 2- perimeter of circle | | 3- perimeter of rectangle |");
                 Console.WriteLine("| 4- perimeter of triangle | | 5- perimeter of semi-circle |");
                 Console.ResetColor();
@@ -494,7 +505,7 @@ namespace ShapeCalc
             while (menuSelect == "3")
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Press any number to go back \nSelect the shape to continue: ");
+                Console.WriteLine("Press any number to go back\n \nSelect the shape to continue: \n");
                 Console.WriteLine("| 1- volume of cube | | 2- volume of sphere | | 3- volume of cuboid |");              
                 Console.ResetColor();
 
